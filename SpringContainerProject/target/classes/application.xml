@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 클래스 등록
+		1. 객체 생성(bean)
+		2. 멤버 변수의 초기화
+		3. 필요한 메소드 호출
+		4. 객체 사용
+		5. 객체 메모리 할당
+		6. 객체 소멸
+	 -->
+	<bean id="board" class="com.sist.spring3.Board" scope="prototype"/> <!-- 복제: prototype -->
+	<bean id="notice" class="com.sist.spring3.Notice"/>
+	<bean id="member" class="com.sist.spring3.Member"/>
+</beans>

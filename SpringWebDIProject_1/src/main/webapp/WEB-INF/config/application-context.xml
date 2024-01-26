@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- 클래스 메모리 할당 -->
+	<context:component-scan base-package="com.sist.*"/>
+	<!-- 
+		@Component, 
+		@Repository, DAO가 가장 많음
+		@Service, 
+		@Controller,
+		@RestController, 
+		@ControllerAdvice, 
+		@Configuration
+	 -->
+	 
+	 <!-- 
+	 0. 디스패처 서블릿이 URL받아서 핸들러 매핑 실행
+	 1. 핸들러 매핑 => 모델 찾기
+	 2. 컨트롤러(모델)이 뷰 리턴
+	 3. 뷰 리졸버가 파일명만 리턴
+	 4. 디스패처 서블릿이 파일 찾아서 보여줌 => application에서 경로,확장자 더해서 찾음
+	 	
+	 	JSP를 찾는 클래스 설정 (.do)
+	 	
+	 	요청 === DispatcherServlet
+	 			1. Model 클래스 => @RequestMapping
+	 			   HandlerMapping
+	 					| request
+	 			2. ViewResolver => 템플릿 엔진을 찾는 역할
+	 					| request
+	 				   JSP
+	 		
+	  -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+		p:prefix="/food/"
+		p:suffix=".jsp"
+	/>
+</beans>
